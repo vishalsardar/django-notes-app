@@ -1,6 +1,6 @@
 @Library('Shared')_
 pipeline{
-    agent { label 'vinod'}
+    agent { label 'zabru'}
     stages{
         stage("Code clone"){
             steps{
@@ -12,14 +12,14 @@ pipeline{
         stage("Code Build"){
             steps{
                 script{
-                    build("notes-app1","latest")
+                    build("notes-app4","latest")
                 }
             }
         }
         stage("Push to DockerHub"){
             steps{
                 script{
-                    push("vishalsardar02","notes-app1","latest")
+                    push_image("vishalsardar02","notes-app4","latest")
                 }
             }
         }
