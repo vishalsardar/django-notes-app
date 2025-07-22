@@ -12,6 +12,9 @@ pipeline{
         stage("Code Build"){
             steps{
                 script{
+                    sh 'whoami'
+                    sh 'id'
+                    sh 'docker ps'
                     build("notes-app1","latest")
                 }
             }
