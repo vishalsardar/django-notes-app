@@ -1,6 +1,10 @@
 @Library('Shared')_
 pipeline{
     agent { label 'vinod'}
+    parameters{
+        string(name:"IMAGE_NAME", defaultValue:"notes-app", description:"Docker Image Name")
+        string(name:"IMAGE_TAG", defaultValue:"v1", description:" Docker Image Tag")
+    }
     stages{
         stage("Code clone"){
             steps{
@@ -12,14 +16,14 @@ pipeline{
         stage("Code Build"){
             steps{
                 script{
-                    build("notes-app1","latest")
+                    build("${params.IMAGE_NAME}","${params.IMAGE_TAG}")
                 }
             }
         }
         stage("Push to DockerHub"){
             steps{
                 script{
-                    push_image("vishalsardar02","notes-app1","latest")
+                    push_image("vishalsardar02","${params.IMAGE_NAME}","${params.IMAGE_TAG}")
                 }
             }
         }
