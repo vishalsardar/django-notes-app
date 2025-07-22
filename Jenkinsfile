@@ -1,6 +1,6 @@
 @Library('Shared')_
 pipeline{
-    agent { label 'zabru'}
+    agent { label 'vinod'}
     stages{
         stage("Code clone"){
             steps{
@@ -12,7 +12,7 @@ pipeline{
         stage("Code Build"){
             steps{
                 script{
-                    build("notes-app4","latest")
+                    build("notes-app1","latest")
                 }
             }
         }
