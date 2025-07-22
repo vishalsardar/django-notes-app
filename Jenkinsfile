@@ -12,9 +12,6 @@ pipeline{
         stage("Code Build"){
             steps{
                 script{
-                    sh 'whoami'
-                    sh 'id'
-                    sh 'docker ps'
                     build("notes-app1","latest")
                 }
             }
@@ -22,7 +19,7 @@ pipeline{
         stage("Push to DockerHub"){
             steps{
                 script{
-                    push_image("vishalsardar02","notes-app4","latest")
+                    push_image("vishalsardar02","notes-app1","latest")
                 }
             }
         }
